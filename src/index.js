@@ -5,20 +5,21 @@ import {
 } from './status.js';
 
 const form = document.getElementById('addTodo');
+const showList = document.getElementById('showListItem');
 
-document.getElementById('showListItem').addEventListener('click', (e) => {
+showList.addEventListener('click', (e) => {
   if (e.target.classList.contains('checkboX')) {
     stausCheck(e);
   }
 });
 
-document.getElementById('showListItem').addEventListener('click', (e) => {
+showList.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-ellipsis-v')) {
     editList(e);
   }
 });
 
-document.getElementById('showListItem').addEventListener('click', (e) => {
+showList.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash-o')) {
     removeTodo(e);
   }
