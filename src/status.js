@@ -4,14 +4,14 @@ let collection = [];
 const form = document.getElementById('addTodo');
 
 function stausCheck(ev) {
-  const buttonId = ev.target.id;
-  const dataGet = localStorage.getItem('todoObject');
-  const data = JSON.parse(dataGet);
+  let buttonId = ev.target.id;
+  let dataGet = localStorage.getItem('todoObject');
+  let data = JSON.parse(dataGet);
   if (data) {
     collection = data;
   }
-  const rtest = collection[collection.findIndex((x) => x.id === parseInt(buttonId, 10))];
-  const last = collection.indexOf(rtest);
+  let rtest = collection[collection.findIndex((x) => x.id === parseInt(buttonId, 10))];
+  let last = collection.indexOf(rtest);
   if (collection[last].complete === false) {
     collection[last].complete = true;
   } else {
@@ -21,7 +21,7 @@ function stausCheck(ev) {
 }
 
 function ShowList(arr) {
-  const listBook = arr.map((b) => `
+  let listBook = arr.map((b) => `
   <ul class="testList1" draggable="true">
         <li><input type="checkbox" id='${b.id}' value='${b.complete}' class="checkboX" ${b.complete ? 'checked' : 'unchecked'}>
         <p>${b.title}</p>
@@ -31,7 +31,7 @@ function ShowList(arr) {
     </ul>
    `).join('');
   document.getElementById('showListItem').innerHTML = `${listBook}`;
-  const test = document.querySelectorAll('.testList1');
+  let test = document.querySelectorAll('.testList1');
   test.forEach((li) => {
     addEventsDragAndDrop(li);
   });
@@ -52,21 +52,21 @@ function addList() {
 }
 
 function editList(ev) {
-  const buttonId = ev.target.id;
-  const dataGet = localStorage.getItem('todoObject');
-  const data = JSON.parse(dataGet);
+  let buttonId = ev.target.id;
+  let dataGet = localStorage.getItem('todoObject');
+  let data = JSON.parse(dataGet);
   if (data) {
     collection = data;
   }
-  const rtest = collection[collection.findIndex((x) => x.id === parseInt(buttonId, 10))];
-  const last = collection.indexOf(rtest);
-  const test = ev.target.parentNode;
-  const editInput = test.querySelector('p');
+ let rtest = collection[collection.findIndex((x) => x.id === parseInt(buttonId, 10))];
+ let last = collection.indexOf(rtest);
+ let test = ev.target.parentNode;
+ let editInput = test.querySelector('p');
   editInput.contentEditable = true;
   editInput.classList.add('test');
-  const a = test.querySelector('.fa-ellipsis-v');
+  let a = test.querySelector('.fa-ellipsis-v');
   a.style.display = 'none';
-  const b = test.querySelector('.fa-trash-o');
+  let b = test.querySelector('.fa-trash-o');
   b.style.display = 'block';
   collection[last].title = editInput.innerHTML;
 
@@ -77,7 +77,7 @@ function editList(ev) {
 }
 
 function removeTodo(ev) {
-  const buttonId = ev.target.id;
+  let buttonId = ev.target.id;
   collection = collection.filter(
     (y) => y !== collection[collection.findIndex(
       (x) => x.id === parseInt(buttonId, 10),
@@ -95,8 +95,8 @@ function removeCompleted() {
 }
 
 window.addEventListener('load', () => {
-  const dataGet = localStorage.getItem('todoObject');
-  const data = JSON.parse(dataGet);
+  let dataGet = localStorage.getItem('todoObject');
+  let data = JSON.parse(dataGet);
   if (data) {
     collection = data;
   }
