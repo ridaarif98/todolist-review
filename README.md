@@ -13,10 +13,6 @@
 - Implement the CRUD (create, update, delete) methods. All the elements of the user interface are fully functional
 - Understand how to use webpack
 
-## Live View
-
-[`https://ridaarif98.github.io/todolist-review/dist/`](https://ridaarif98.github.io/todolist-review/dist/)
-
 
 ## Built With
 
